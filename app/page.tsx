@@ -24,7 +24,7 @@ const fastDuration = 0.4;
 const wordVariant = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: fastDuration, ease: "easeOut" } }
-};
+} as const;
 
 const titleContainerVariant = {
   hidden: { opacity: 0 },
@@ -35,12 +35,12 @@ const titleContainerVariant = {
       staggerChildren: 0.08 // Fast word by word
     }
   }
-};
+} as const;
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: fastDuration, ease: "easeOut" } }
-};
+} as const;
 
 const bottomStagger = {
   hidden: { opacity: 0 },
@@ -51,7 +51,7 @@ const bottomStagger = {
       staggerChildren: 0.15
     }
   }
-};
+} as const;
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -61,7 +61,7 @@ const staggerContainer = {
       staggerChildren: 0.2
     }
   }
-};
+} as const;
 
 const smoothScrollTo = (targetId: string, duration: number) => {
   const target = document.getElementById(targetId);
