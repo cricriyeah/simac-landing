@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import CTA from "./components/CTA";
+import Footer from "./components/Footer";
 import { motion, useMotionValue, useTransform, animate, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
@@ -260,25 +261,35 @@ export default function Home() {
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 35,
+                duration: 20,
                 ease: "linear",
               },
             }}
             className="flex flex-nowrap gap-20 items-center"
           >
             {[
-              "Trina Solar", "Jinko Solar", "SMA Solar", "Canadian Solar", "Fronius", 
-              "Daikin", "York", "Carrier", "Honeywell", "Danfoss", "Schneider", "ABB"
+              { src: "/marcas/JA-solar-vico-export-solar_energy.png", alt: "JA Solar" },
+              { src: "/marcas/Luxpower-logo111-1030x186.png", alt: "Luxpower" },
+              { src: "/marcas/logo-aires-mirage.png", alt: "Mirage" },
+              { src: "/marcas/logo.png", alt: "Epever" }
             ].concat([
-              "Trina Solar", "Jinko Solar", "SMA Solar", "Canadian Solar", "Fronius", 
-              "Daikin", "York", "Carrier", "Honeywell", "Danfoss", "Schneider", "ABB"
+              { src: "/marcas/JA-solar-vico-export-solar_energy.png", alt: "JA Solar" },
+              { src: "/marcas/Luxpower-logo111-1030x186.png", alt: "Luxpower" },
+              { src: "/marcas/logo-aires-mirage.png", alt: "Mirage" },
+              { src: "/marcas/logo.png", alt: "Epever" }
+            ]).concat([
+              { src: "/marcas/JA-solar-vico-export-solar_energy.png", alt: "JA Solar" },
+              { src: "/marcas/Luxpower-logo111-1030x186.png", alt: "Luxpower" },
+              { src: "/marcas/logo-aires-mirage.png", alt: "Mirage" },
+              { src: "/marcas/logo.png", alt: "Epever" }
             ]).map((brand, idx) => (
-              <span 
-                key={idx} 
-                className="text-gray-300 hover:text-brand-accent transition-colors duration-500 text-xl font-medium uppercase tracking-[0.25em] whitespace-nowrap px-4"
-              >
-                {brand}
-              </span>
+              <div key={idx} className="flex-shrink-0 px-8">
+                <img 
+                  src={brand.src} 
+                  alt={brand.alt} 
+                  className="h-12 md:h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-500 cursor-pointer"
+                />
+              </div>
             ))}
           </motion.div>
         </div>
@@ -368,10 +379,10 @@ export default function Home() {
         className="bg-slate-50/50 pb-48 px-8 md:px-16 lg:px-24 xl:px-40 max-w-[1920px] mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
       >
         {[
-          { title: "Energía Solar", slug: "solar", desc: "Estudios ROI, trámites CFE, microinversores y opciones de financiamiento y arrendamiento.", icon: "solar_power", img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop" },
-          { title: "Aire Acondicionado y Refrigeración", slug: "hvac", desc: "Instalación y mantenimiento 24/7 de equipos paquete, VRF y Chillers de gran capacidad.", icon: "factory", img: "https://images.unsplash.com/photo-1605276374104-162f1c4cb511?q=80&w=800&auto=format&fit=crop" },
-          { title: "Instalaciones Eléctricas", slug: "electrico", desc: "Ingeniería llave en mano: Subestaciones, corrección de factor de potencia y cumplimiento NOM.", icon: "electric_bolt", img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=800&auto=format&fit=crop" },
-          { title: "Cámaras Frigoríficas", slug: "frigorifico", desc: "Diseño y mantenimiento de sistemas de congelación y conservación con monitoreo en tiempo real.", icon: "ac_unit", img: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=800&auto=format&fit=crop" }
+          { title: "Energía Solar", slug: "solar", desc: "Estudios ROI, trámites CFE, microinversores y opciones de financiamiento y arrendamiento.", icon: "solar_power", img: "/imagenes/solar.png" },
+          { title: "Aire Acondicionado y Refrigeración", slug: "hvac", desc: "Instalación y mantenimiento 24/7 de equipos paquete, VRF y Chillers de gran capacidad.", icon: "factory", img: "/imagenes/ac.jpg" },
+          { title: "Instalaciones Eléctricas", slug: "electrico", desc: "Ingeniería llave en mano: Subestaciones, corrección de factor de potencia y cumplimiento NOM.", icon: "electric_bolt", img: "/imagenes/instalacioneselectricas.png" },
+          { title: "Cámaras Frigoríficas", slug: "frigorifico", desc: "Diseño y mantenimiento de sistemas de congelación y conservación con monitoreo en tiempo real.", icon: "ac_unit", img: "/imagenes/camaras.png" }
         ].map((item, i) => (
           <motion.div 
             key={i} 
@@ -498,28 +509,28 @@ export default function Home() {
               tag: "Solar Fotovoltaico", 
               slug: "residencia-castillo",
               desc: "Sistema solar de alta gama con integración arquitectónica y máxima eficiencia energética.", 
-              img: "https://images.unsplash.com/photo-1508599589920-14cfa1c1fe4d?q=80&w=1000&auto=format&fit=crop" 
+              img: "/proyectos/castillo/hero.JPG" 
             },
             { 
               title: "Proyecto Doce cuarenta", 
               tag: "Solar Fotovoltaico", 
-              slug: "doce-cuarenta",
+              slug: "proyectos/proximamente",
               desc: "Ingeniería de climatización industrial para espacios de alto rendimiento y diseño moderno.", 
-              img: "https://images.unsplash.com/photo-1605276374104-162f1c4cb511?q=80&w=1000&auto=format&fit=crop" 
+              img: "" 
             },
             { 
               title: "Residencia Paraiso", 
               tag: "Solar Fotovoltaico", 
               slug: "residencia-paraiso",
               desc: "Solución de energía limpia de gran escala para residencia premium en zona costera.", 
-              img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1000&auto=format&fit=crop" 
+              img: "/proyectos/paraiso/hero.jpg" 
             },
             { 
               title: "Mantenimiento Caracol", 
               tag: "Refrigeración", 
-              slug: "mantenimiento-caracol",
+              slug: "proyectos/proximamente",
               desc: "Póliza de servicio integral y optimización de sistemas críticos para complejo de servicios.", 
-              img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1000&auto=format&fit=crop" 
+              img: "" 
             }
           ].map((item, i) => (
             <motion.div 
@@ -529,15 +540,23 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="flex-shrink-0 w-[340px] md:w-[520px] snap-start flex flex-col group cursor-pointer"
-              onClick={() => window.location.href = `/proyectos/${item.slug}`}
+              onClick={() => window.location.href = item.slug.startsWith('proyectos/') ? `/${item.slug}` : `/proyectos/${item.slug}`}
             >
-              <div className="relative w-full aspect-[16/10] overflow-hidden mb-6 bg-brand-dark">
-                <Image 
-                  src={item.img} 
-                  alt={item.title} 
-                  fill 
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" 
-                />
+              <div className="relative w-full aspect-[16/10] overflow-hidden mb-6 bg-brand-dark flex items-center justify-center">
+                {item.img ? (
+                  <Image 
+                    src={item.img} 
+                    alt={item.title} 
+                    fill 
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" 
+                  />
+                ) : (
+                  <div className="text-white/20 text-center p-8">
+                    <span className="material-symbols-outlined text-6xl mb-4">image_not_supported</span>
+                    <p className="text-xs uppercase tracking-widest font-bold">Documentación en proceso</p>
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-500"></div>
                 <div className="absolute top-0 left-0 bg-brand-accent text-brand-dark text-[10px] font-bold px-3 py-1.5 uppercase tracking-widest">
                   {item.tag}
                 </div>
@@ -558,59 +577,7 @@ export default function Home() {
 
       <CTA />
 
-      {/* Footer */}
-      <footer className="bg-brand-darkest text-white pt-24 pb-12 px-8 md:px-16 lg:px-24 xl:px-40 w-full border-t border-brand-accent/20">
-        <div className="max-w-[1920px] mx-auto flex flex-col lg:flex-row justify-between gap-16 mb-24">
-          <div className="w-full lg:w-1/3 space-y-8">
-            <div className="flex items-center gap-2">
-              <img
-                src="/logos/logoblanco.webp"
-                alt="SIMAC Logo"
-                className="h-10 w-auto"
-              />
-            </div>
-            <p className="text-white/90 text-sm max-w-xs leading-relaxed">
-              Soluciones integrales en energía solar, refrigeración industrial y proyectos eléctricos de alta eficiencia en Baja California Sur.
-            </p>
-            <div className="space-y-2">
-              <p className="text-sm font-medium text-brand-sky">Llámanos:</p>
-              <p className="text-2xl font-bold">+(52) 612 169 3053</p>
-              <p className="text-sm text-white/90 mt-2">simac.ingenieria@gmail.com</p>
-            </div>
-          </div>
-          
-          <div className="w-full lg:w-2/3 flex flex-wrap gap-16 justify-start lg:justify-end">
-            <div>
-              <h4 className="font-medium mb-6 uppercase tracking-wider text-sm">Secciones</h4>
-              <ul className="space-y-4 text-sm text-white/90">
-                <li><a href="#inicio" className="hover:text-brand-accent transition">Inicio</a></li>
-                <li><a href="#nosotros" className="hover:text-brand-accent transition">Nosotros</a></li>
-                <li><a href="#servicios" className="hover:text-brand-accent transition">Servicios</a></li>
-                <li><a href="#contacto" className="hover:text-brand-accent transition">Contacto</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-medium mb-6 uppercase tracking-wider text-sm">Redes Sociales</h4>
-              <ul className="space-y-4 text-sm text-white/90">
-                <li><a href="https://www.facebook.com/multimardecortes1" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition">Facebook</a></li>
-                <li><a href="https://wa.me/5216121693053" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition">WhatsApp</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-medium mb-6 uppercase tracking-wider text-sm">Legal</h4>
-              <ul className="space-y-4 text-sm text-white/90">
-                <li><a href="#" className="hover:text-brand-accent transition">Aviso de Privacidad</a></li>
-                <li><a href="#" className="hover:text-brand-accent transition">Términos de Servicio</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div className="max-w-[1920px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-brand-dark pt-8 border-t border-white/10">
-          <p>Toronja 4440, La Paz, Baja California Sur, México 23078</p>
-          <p>© 2026 SIMAC. Todos los derechos reservados.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

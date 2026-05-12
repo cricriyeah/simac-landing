@@ -164,82 +164,60 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* Technical Showcase - Bento Grid */}
-      <section className="py-24 px-8 md:px-16 lg:px-24 xl:px-40 bg-white">
-        <div className="max-w-[1920px] mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-            <div className="max-w-2xl">
-              <h2 className="text-brand-sky font-bold uppercase text-xs tracking-[0.3em] mb-4">Ingeniería de Detalle</h2>
-              <h3 className="text-4xl lg:text-5xl font-semibold text-brand-dark uppercase tracking-tight leading-none text-soft-shadow">Capacidades Técnicas</h3>
+      {/* Respaldo Técnico y Partners Section */}
+      <section className="py-32 px-8 md:px-16 lg:px-24 xl:px-40 bg-brand-dark text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-accent/5 -skew-x-12 transform translate-x-20"></div>
+        
+        <div className="max-w-[1920px] mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-5">
+              <span className="text-brand-accent font-bold text-xs uppercase tracking-[0.3em] mb-4 block">Calidad Garantizada</span>
+              <h3 className="text-4xl lg:text-5xl font-semibold uppercase tracking-tight leading-none mb-8">Respaldo de Ingeniería</h3>
+              <p className="text-white/70 font-light leading-relaxed text-lg mb-12">
+                Utilizamos exclusivamente equipos de grado industrial y componentes certificados internacionalmente para asegurar que cada proyecto supere las normativas vigentes.
+              </p>
+              
+              <div className="space-y-6">
+                {service.features.slice(0, 3).map((feature, i) => (
+                  <div key={i} className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-full border border-brand-accent/30 flex items-center justify-center flex-shrink-0">
+                      <span className="material-symbols-outlined text-brand-accent text-xl">check_circle</span>
+                    </div>
+                    <span className="text-lg font-medium tracking-tight">{feature}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <p className="text-brand-dark/50 font-light max-w-sm text-sm border-l border-gray-200 pl-6">
-              Ejecución técnica respaldada por certificaciones internacionales y un equipo de ingeniería electromecánica especializado.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[250px]">
-            {/* Feature 1: Large Image Tile */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              className="md:col-span-4 lg:col-span-4 row-span-2 relative overflow-hidden group bg-brand-dark"
-            >
-              <Image 
-                src={service.image} 
-                alt={service.title} 
-                fill 
-                className="object-cover opacity-70 group-hover:scale-105 transition-transform duration-1000"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-darkest via-transparent to-transparent"></div>
-              <div className="absolute bottom-10 left-10">
-                <span className="bg-brand-accent text-brand-darkest text-[10px] font-bold uppercase px-3 py-1 mb-4 inline-block">Principal</span>
-                <h4 className="text-3xl font-bold text-white uppercase tracking-tight leading-tight max-w-md">
-                  {service.features[0]}
-                </h4>
+            
+            <div className="lg:col-span-7 bg-white/5 backdrop-blur-sm p-12 border border-white/10">
+              <h4 className="text-brand-sky font-bold text-xs uppercase tracking-widest mb-12 text-center">Nuestros Aliados Estratégicos</h4>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center">
+                <div className="opacity-60 hover:opacity-100 transition-opacity flex justify-center">
+                  <Image src="/marcas/JA-solar-vico-export-solar_energy.png" alt="JA Solar" width={140} height={60} className="object-contain filter brightness-0 invert" />
+                </div>
+                <div className="opacity-60 hover:opacity-100 transition-opacity flex justify-center">
+                  <Image src="/marcas/Luxpower-logo111-1030x186.png" alt="Luxpower" width={140} height={60} className="object-contain filter brightness-0 invert" />
+                </div>
+                <div className="opacity-60 hover:opacity-100 transition-opacity flex justify-center">
+                  <Image src="/marcas/logo-aires-mirage.png" alt="Mirage" width={140} height={60} className="object-contain filter brightness-0 invert" />
+                </div>
+                <div className="opacity-60 hover:opacity-100 transition-opacity flex justify-center">
+                  <Image src="/marcas/logo.png" alt="Partner" width={80} height={40} className="object-contain filter brightness-0 invert" />
+                </div>
               </div>
-            </motion.div>
-
-            {/* Feature 2: Solid Color Tile */}
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="md:col-span-2 lg:col-span-2 row-span-1 bg-brand-sky p-10 flex flex-col justify-between text-white group hover:bg-brand-sky-hover transition-colors"
-            >
-              <span className="material-symbols-outlined text-4xl opacity-50">verified_user</span>
-              <p className="text-xl font-bold uppercase leading-tight">{service.features[1]}</p>
-            </motion.div>
-
-            {/* Feature 3: Light Neutral Tile */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="md:col-span-2 lg:col-span-2 row-span-1 bg-slate-50 p-10 border border-gray-100 flex flex-col justify-center group"
-            >
-              <h5 className="text-[10px] font-bold text-brand-sky uppercase tracking-widest mb-3">Especialidad</h5>
-              <p className="text-xl font-medium text-brand-dark leading-snug group-hover:text-brand-sky transition-colors">{service.features[2]}</p>
-            </motion.div>
-
-            {/* Feature 4: High Contrast Tile */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="md:col-span-3 lg:col-span-3 row-span-1 bg-brand-darkest p-10 text-white flex items-center justify-between group overflow-hidden relative"
-            >
-              <div className="relative z-10">
-                 <p className="text-2xl font-bold uppercase tracking-tighter max-w-xs leading-none">{service.features[3]}</p>
+              <div className="mt-16 pt-12 border-t border-white/10">
+                 <div className="grid grid-cols-2 gap-8">
+                    <div>
+                      <p className="text-3xl font-bold text-brand-accent">25+</p>
+                      <p className="text-[10px] uppercase tracking-widest text-white/50 mt-1">Años de Garantía</p>
+                    </div>
+                    <div>
+                      <p className="text-3xl font-bold text-brand-accent">24/7</p>
+                      <p className="text-[10px] uppercase tracking-widest text-white/50 mt-1">Soporte Técnico</p>
+                    </div>
+                 </div>
               </div>
-              <span className="material-symbols-outlined text-brand-accent text-7xl opacity-20 absolute -right-4 -bottom-4 group-hover:scale-125 transition-transform duration-1000">construction</span>
-            </motion.div>
-
-            {/* Feature 5: Minimal Info Tile */}
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="md:col-span-1 lg:col-span-3 row-span-1 border-2 border-dashed border-gray-100 p-10 flex flex-col justify-center items-center text-center group hover:border-brand-sky transition-colors"
-            >
-              <span className="material-symbols-outlined text-brand-sky text-4xl mb-4">settings_suggest</span>
-              <p className="text-brand-dark font-bold uppercase text-xs tracking-[0.2em]">{service.features[4]}</p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
