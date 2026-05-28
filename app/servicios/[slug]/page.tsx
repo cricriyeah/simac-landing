@@ -9,7 +9,7 @@ const servicesData = {
   "solar": {
     title: "Instalación y Diseño Fotovoltaico",
     tag: "Energía Solar",
-    desc: "Diseñamos sistemas de paneles solares óptimos para el clima de BCS, garantizando el máximo ahorro para su hogar o industria.",
+    desc: "Sistemas solares personalizados para cada necesidad, reducción de consumo, respaldo de energía en baterías y sistemas independientes de la red.",
     longDesc: "Como Ingenieros Electromecánicos, diseñamos sistemas de paneles solares óptimos para las altas temperaturas de Baja California Sur. Realizamos estudios de viabilidad y retorno de inversión (ROI) precisos para garantizar el máximo ahorro y una rápida recuperación de la inversión.",
     features: [
       "Estudios de Viabilidad y Retorno de Inversión (ROI)",
@@ -29,7 +29,7 @@ const servicesData = {
   "hvac": {
     title: "Climatización Industrial y Mantenimiento HVAC",
     tag: "Aire Acondicionado y Refrigeración",
-    desc: "Soluciones integrales de climatización para hoteles, comercios e industrias, cubriendo desde unidades paquete hasta Chillers.",
+    desc: "Proyección, instalación y mantenimiento a equipos de climatización comercial y residencial.",
     longDesc: "Mantenemos sus procesos productivos y productos frescos. Ofrecemos servicio técnico especializado y soluciones integrales de climatización (HVAC) para hoteles, comercios e industrias, cubriendo desde unidades paquete hasta Chillers de gran capacidad.",
     features: [
       "Mantenimiento Preventivo y Correctivo 24/7",
@@ -48,7 +48,7 @@ const servicesData = {
   "electrico": {
     title: "Proyectos Eléctricos Llave en Mano",
     tag: "Instalaciones Eléctricas",
-    desc: "Ingeniería eléctrica completa asegurando el cumplimiento de normativas y la optimización de sus sistemas de energía.",
+    desc: "Ejecución de obra eléctrica en baja y media tensión, mantenimiento eléctrico y detección de puntos de falla de acuerdo a la NOM-001.",
     longDesc: "Garantizamos la seguridad y eficiencia de su infraestructura eléctrica. Nuestro equipo de ingenieros diseña y ejecuta proyectos eléctricos completos, asegurando el cumplimiento de normativas y la optimización de sus sistemas de energía.",
     features: [
       "Corrección de Factor de Potencia y Calidad de Energía",
@@ -67,7 +67,7 @@ const servicesData = {
   "frigorifico": {
     title: "Cámaras Frigoríficas y Almacenamiento",
     tag: "Cámaras Frigoríficas",
-    desc: "Soluciones especializadas en refrigeración de baja temperatura y conservación de productos.",
+    desc: "Diseño, instalación y mantenimiento a cámaras frías de uso comercial para media y baja temperatura.",
     longDesc: "Diseñamos e instalamos soluciones de refrigeración industrial de alto rendimiento. Nos especializamos en la optimización de la cadena de frío para proteger la integridad de sus productos comerciales e industriales.",
     features: [
       "Diseño e Instalación de Cámaras de Congelación",
@@ -203,6 +203,18 @@ export default function ServicePage() {
                 </div>
                 <div className="opacity-60 hover:opacity-100 transition-opacity flex justify-center">
                   <Image src="/marcas/logo.png" alt="Partner" width={80} height={40} className="object-contain filter brightness-0 invert" />
+                </div>
+                <div className="opacity-60 hover:opacity-100 transition-opacity flex justify-center">
+                  <Image src="/marcas/1.png" alt="LONGi Solar" width={140} height={60} className="object-contain filter brightness-0 invert" />
+                </div>
+                <div className="opacity-60 hover:opacity-100 transition-opacity flex justify-center">
+                  <Image src="/marcas/2.png" alt="Solis Inverters" width={140} height={60} className="object-contain filter brightness-0 invert" />
+                </div>
+                <div className="opacity-60 hover:opacity-100 transition-opacity flex justify-center">
+                  <Image src="/marcas/3.png" alt="Victron Energy" width={140} height={60} className="object-contain filter brightness-0 invert" />
+                </div>
+                <div className="opacity-60 hover:opacity-100 transition-opacity flex justify-center">
+                  <Image src="/marcas/logo-1.png" alt="Sol-Ark" width={140} height={60} className="object-contain filter brightness-0 invert" />
                 </div>
               </div>
               <div className="mt-16 pt-12 border-t border-white/10">

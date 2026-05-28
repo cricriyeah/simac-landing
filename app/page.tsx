@@ -271,17 +271,29 @@ export default function Home() {
               { src: "/marcas/JA-solar-vico-export-solar_energy.png", alt: "JA Solar" },
               { src: "/marcas/Luxpower-logo111-1030x186.png", alt: "Luxpower" },
               { src: "/marcas/logo-aires-mirage.png", alt: "Mirage" },
-              { src: "/marcas/logo.png", alt: "Epever" }
+              { src: "/marcas/logo.png", alt: "Epever" },
+              { src: "/marcas/1.png", alt: "LONGi Solar" },
+              { src: "/marcas/2.png", alt: "Solis Inverters" },
+              { src: "/marcas/3.png", alt: "Victron Energy" },
+              { src: "/marcas/logo-1.png", alt: "Sol-Ark" }
             ].concat([
               { src: "/marcas/JA-solar-vico-export-solar_energy.png", alt: "JA Solar" },
               { src: "/marcas/Luxpower-logo111-1030x186.png", alt: "Luxpower" },
               { src: "/marcas/logo-aires-mirage.png", alt: "Mirage" },
-              { src: "/marcas/logo.png", alt: "Epever" }
+              { src: "/marcas/logo.png", alt: "Epever" },
+              { src: "/marcas/1.png", alt: "LONGi Solar" },
+              { src: "/marcas/2.png", alt: "Solis Inverters" },
+              { src: "/marcas/3.png", alt: "Victron Energy" },
+              { src: "/marcas/logo-1.png", alt: "Sol-Ark" }
             ]).concat([
               { src: "/marcas/JA-solar-vico-export-solar_energy.png", alt: "JA Solar" },
               { src: "/marcas/Luxpower-logo111-1030x186.png", alt: "Luxpower" },
               { src: "/marcas/logo-aires-mirage.png", alt: "Mirage" },
-              { src: "/marcas/logo.png", alt: "Epever" }
+              { src: "/marcas/logo.png", alt: "Epever" },
+              { src: "/marcas/1.png", alt: "LONGi Solar" },
+              { src: "/marcas/2.png", alt: "Solis Inverters" },
+              { src: "/marcas/3.png", alt: "Victron Energy" },
+              { src: "/marcas/logo-1.png", alt: "Sol-Ark" }
             ]).map((brand, idx) => (
               <div key={idx} className="flex-shrink-0 px-8">
                 <img 
@@ -331,19 +343,20 @@ export default function Home() {
                 Ingeniería Electromecánica con <span className="text-brand-sky">Sello Sudcaliforniano</span>
               </h2>
               <div className="space-y-4 text-brand-dark text-sm max-w-lg">
-                <p>Nuestra empresa es 100% sudcaliforniana, fundada por Ingenieros Electromecánicos egresados del ITLP con amplia experiencia y certificaciones de la industria.</p>
-                <p>La ejecución técnica es impecable, diseñada para soportar el rigor del clima de Baja California Sur garantizando la máxima durabilidad de su inversión.</p>
+                <p>Somos una empresa 100% sudcaliforniana comprometida, inteligente, eficiente y sostenible.</p>
+                <p>Diseñamos soluciones energéticas avanzadas que integran paneles solares, almacenamiento en baterías y sistemas de respaldo para hogares, negocios y proyectos especiales en Baja California Sur.</p>
+                <p>Combinamos ingeniería, tecnología y diseño para crear sistemas que no solo reducen costos eléctricos, sino que también brindan autonomía y protección energética.</p>
+                <p>Nuestra visión es ayudar a construir un futuro donde cada propiedad pueda generar y administrar su propia energía de manera eficiente y segura.</p>
               </div>
             </div>
 
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
-                "Ingeniería con Certificación Local",
-                "Soluciones Solar, Eléctrico y Clima",
-                "Expertos en Cámaras Frigoríficas",
-                "Respuesta rápida en todo BCS",
-                "Proyectos Llave en Mano",
-                "Mantenimiento Industrial 24/7"
+                "Dimensionamiento, proyección y ejecución de proyectos solares.",
+                "Garantías por escrito.",
+                "Asesoría y seguimiento personalizado en cada proyecto.",
+                "Seguimiento post proyecto.",
+                "Materiales y equipos de alta calidad"
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 py-2">
                   <span className="material-symbols-outlined text-brand-accent text-xl">check_circle</span>
@@ -379,10 +392,10 @@ export default function Home() {
         className="bg-slate-50/50 pb-48 px-8 md:px-16 lg:px-24 xl:px-40 max-w-[1920px] mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
       >
         {[
-          { title: "Energía Solar", slug: "solar", desc: "Estudios ROI, trámites CFE, microinversores y opciones de financiamiento y arrendamiento.", icon: "solar_power", img: "/imagenes/solar.png" },
-          { title: "Aire Acondicionado y Refrigeración", slug: "hvac", desc: "Instalación y mantenimiento 24/7 de equipos paquete, VRF y Chillers de gran capacidad.", icon: "factory", img: "/imagenes/ac.jpg" },
-          { title: "Instalaciones Eléctricas", slug: "electrico", desc: "Ingeniería llave en mano: Subestaciones, corrección de factor de potencia y cumplimiento NOM.", icon: "electric_bolt", img: "/imagenes/instalacioneselectricas.png" },
-          { title: "Cámaras Frigoríficas", slug: "frigorifico", desc: "Diseño y mantenimiento de sistemas de congelación y conservación con monitoreo en tiempo real.", icon: "ac_unit", img: "/imagenes/camaras.png" }
+          { title: "Energía Solar", slug: "solar", desc: "Sistemas solares personalizados para cada necesidad, reducción de consumo, respaldo de energía en baterías y sistemas independientes de la red.", icon: "solar_power", img: "/imagenes/solar.png" },
+          { title: "Aire Acondicionado y Refrigeración", slug: "hvac", desc: "Proyección, instalación y mantenimiento a equipos de climatización comercial y residencial.", icon: "factory", img: "/imagenes/ac.jpg" },
+          { title: "Instalaciones Eléctricas", slug: "electrico", desc: "Ejecución de obra eléctrica en baja y media tensión, mantenimiento eléctrico y detección de puntos de falla de acuerdo a la NOM-001.", icon: "electric_bolt", img: "/imagenes/instalacioneselectricas.png" },
+          { title: "Cámaras Frigoríficas", slug: "frigorifico", desc: "Diseño, instalación y mantenimiento a cámaras frías de uso comercial para media y baja temperatura.", icon: "ac_unit", img: "/imagenes/camaras.png" }
         ].map((item, i) => (
           <motion.div 
             key={i} 
