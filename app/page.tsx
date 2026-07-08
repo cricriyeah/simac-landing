@@ -424,13 +424,6 @@ export default function Home() {
               slug: "residencia-paraiso",
               desc: "Solución de energía limpia de gran escala para residencia premium en zona costera.", 
               img: "/proyectos/paraiso/hero.jpg" 
-            },
-            { 
-              title: "Mantenimiento Caracol", 
-              tag: "Refrigeración", 
-              slug: "proyectos/proximamente",
-              desc: "Póliza de servicio integral y optimización de sistemas críticos para complejo de servicios.", 
-              img: "" 
             }
           ].map((item, i) => (
             <motion.div 
