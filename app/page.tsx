@@ -309,16 +309,16 @@ export default function Home() {
 
       {/* Combined About Section (Nosotros + Liderazgo Local) */}
       <section id="nosotros" className="bg-white py-32 px-8 md:px-16 lg:px-24 xl:px-40 w-full overflow-hidden">
-        <div className="max-w-[1920px] mx-auto flex flex-col lg:flex-row gap-20 items-center">
+        <div className="max-w-[1920px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-stretch">
           {/* Left: Image with Lightning Bolt */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="w-full lg:w-1/2"
+            className="w-full lg:w-1/2 flex flex-col"
           >
-            <div className="relative w-full aspect-[4/3] lg:aspect-[16/10] overflow-hidden bg-brand-dark shadow-2xl">
+            <div className="relative w-full h-[400px] lg:h-full overflow-hidden bg-brand-dark shadow-2xl rounded-sm">
               <Image 
                 src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=1000&auto=format&fit=crop" 
                 alt="Ingenieros SIMAC trabajando" 
@@ -365,6 +365,110 @@ export default function Home() {
               ))}
             </ul>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Projects Section Moved Here */}
+      <section id="proyectos" className="bg-brand-light py-24 px-8 md:px-16 lg:px-24 xl:px-40 max-w-[1920px] mx-auto w-full">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
+        >
+          <h2 className="text-3xl lg:text-4xl font-medium tracking-tight max-w-lg text-brand-dark">Proyectos Ejecutados con Ingeniería de Excelencia</h2>
+          <div className="flex gap-4 mt-2 md:mt-0">
+            <button 
+              onClick={() => {
+                const container = document.getElementById('project-container');
+                if (container) container.scrollBy({ left: -400, behavior: 'smooth' });
+              }}
+              className="w-12 h-12 border border-gray-300 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-colors text-brand-dark"
+            >
+              <span className="material-symbols-outlined">arrow_back</span>
+            </button>
+            <button 
+              onClick={() => {
+                const container = document.getElementById('project-container');
+                if (container) container.scrollBy({ left: 400, behavior: 'smooth' });
+              }}
+              className="w-12 h-12 border border-gray-300 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-colors text-brand-dark"
+            >
+              <span className="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </div>
+        </motion.div>
+        
+        <div 
+          id="project-container"
+          className="flex overflow-x-auto gap-10 pb-12 snap-x snap-mandatory no-scrollbar"
+        >
+          {[
+            { 
+              title: "Residencia Castillo", 
+              tag: "Solar Fotovoltaico", 
+              slug: "residencia-castillo",
+              desc: "Sistema solar de alta gama con integración arquitectónica y máxima eficiencia energética.", 
+              img: "/proyectos/castillo/hero.JPG" 
+            },
+            { 
+              title: "DoceCuarenta Centro", 
+              tag: "Solar Comercial", 
+              slug: "doce-cuarenta",
+              desc: "Transición a energía limpia para la cafetería de especialidad más icónica de La Paz.", 
+              img: "/proyectos/docecuarenta/portada.png" 
+            },
+            { 
+              title: "Residencia Paraiso", 
+              tag: "Solar Fotovoltaico", 
+              slug: "residencia-paraiso",
+              desc: "Solución de energía limpia de gran escala para residencia premium en zona costera.", 
+              img: "/proyectos/paraiso/hero.jpg" 
+            },
+            { 
+              title: "Mantenimiento Caracol", 
+              tag: "Refrigeración", 
+              slug: "proyectos/proximamente",
+              desc: "Póliza de servicio integral y optimización de sistemas críticos para complejo de servicios.", 
+              img: "" 
+            }
+          ].map((item, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="flex-shrink-0 w-[340px] md:w-[520px] snap-start flex flex-col group cursor-pointer"
+              onClick={() => window.location.href = item.slug.startsWith('proyectos/') ? `/${item.slug}` : `/proyectos/${item.slug}`}
+            >
+              <div className="relative w-full aspect-[16/10] overflow-hidden mb-6 bg-brand-dark flex items-center justify-center">
+                {item.img ? (
+                  <Image 
+                    src={item.img} 
+                    alt={item.title} 
+                    fill 
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" 
+                  />
+                ) : (
+                  <div className="text-white/20 text-center p-8">
+                    <span className="material-symbols-outlined text-6xl mb-4">image_not_supported</span>
+                    <p className="text-xs uppercase tracking-widest font-bold">Documentación en proceso</p>
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                <div className="absolute top-0 left-0 bg-brand-accent text-brand-dark text-[10px] font-bold px-3 py-1.5 uppercase tracking-widest">
+                  {item.tag}
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-brand-dark mb-3 group-hover:text-brand-sky transition-colors">
+                {item.title}
+              </h3>
+              <p className="text-sm text-brand-dark leading-relaxed font-light">
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
@@ -479,109 +583,6 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section id="proyectos" className="bg-brand-light py-24 px-8 md:px-16 lg:px-24 xl:px-40 max-w-[1920px] mx-auto w-full">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
-        >
-          <h2 className="text-3xl lg:text-4xl font-medium tracking-tight max-w-lg text-brand-dark">Proyectos Ejecutados con Ingeniería de Excelencia</h2>
-          <div className="hidden md:flex gap-4">
-            <button 
-              onClick={() => {
-                const container = document.getElementById('project-container');
-                if (container) container.scrollBy({ left: -400, behavior: 'smooth' });
-              }}
-              className="w-12 h-12 border border-gray-300 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-colors text-brand-dark"
-            >
-              <span className="material-symbols-outlined">arrow_back</span>
-            </button>
-            <button 
-              onClick={() => {
-                const container = document.getElementById('project-container');
-                if (container) container.scrollBy({ left: 400, behavior: 'smooth' });
-              }}
-              className="w-12 h-12 border border-gray-300 flex items-center justify-center hover:bg-brand-dark hover:text-white transition-colors text-brand-dark"
-            >
-              <span className="material-symbols-outlined">arrow_forward</span>
-            </button>
-          </div>
-        </motion.div>
-        
-        <div 
-          id="project-container"
-          className="flex overflow-x-auto gap-10 pb-12 snap-x snap-mandatory no-scrollbar"
-        >
-          {[
-            { 
-              title: "Residencia Castillo", 
-              tag: "Solar Fotovoltaico", 
-              slug: "residencia-castillo",
-              desc: "Sistema solar de alta gama con integración arquitectónica y máxima eficiencia energética.", 
-              img: "/proyectos/castillo/hero.JPG" 
-            },
-            { 
-              title: "Proyecto Doce cuarenta", 
-              tag: "Solar Fotovoltaico", 
-              slug: "proyectos/proximamente",
-              desc: "Ingeniería de climatización industrial para espacios de alto rendimiento y diseño moderno.", 
-              img: "" 
-            },
-            { 
-              title: "Residencia Paraiso", 
-              tag: "Solar Fotovoltaico", 
-              slug: "residencia-paraiso",
-              desc: "Solución de energía limpia de gran escala para residencia premium en zona costera.", 
-              img: "/proyectos/paraiso/hero.jpg" 
-            },
-            { 
-              title: "Mantenimiento Caracol", 
-              tag: "Refrigeración", 
-              slug: "proyectos/proximamente",
-              desc: "Póliza de servicio integral y optimización de sistemas críticos para complejo de servicios.", 
-              img: "" 
-            }
-          ].map((item, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="flex-shrink-0 w-[340px] md:w-[520px] snap-start flex flex-col group cursor-pointer"
-              onClick={() => window.location.href = item.slug.startsWith('proyectos/') ? `/${item.slug}` : `/proyectos/${item.slug}`}
-            >
-              <div className="relative w-full aspect-[16/10] overflow-hidden mb-6 bg-brand-dark flex items-center justify-center">
-                {item.img ? (
-                  <Image 
-                    src={item.img} 
-                    alt={item.title} 
-                    fill 
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" 
-                  />
-                ) : (
-                  <div className="text-white/20 text-center p-8">
-                    <span className="material-symbols-outlined text-6xl mb-4">image_not_supported</span>
-                    <p className="text-xs uppercase tracking-widest font-bold">Documentación en proceso</p>
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-500"></div>
-                <div className="absolute top-0 left-0 bg-brand-accent text-brand-dark text-[10px] font-bold px-3 py-1.5 uppercase tracking-widest">
-                  {item.tag}
-                </div>
-              </div>
-              <h3 className="text-lg font-semibold text-brand-dark mb-3 group-hover:text-brand-sky transition-colors">
-                {item.title}
-              </h3>
-              <p className="text-sm text-brand-dark leading-relaxed font-light">
-                {item.desc}
-              </p>
-            </motion.div>
-          ))}
         </div>
       </section>
 

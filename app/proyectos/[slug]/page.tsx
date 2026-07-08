@@ -28,22 +28,32 @@ const projectsData = {
     ]
   },
   "doce-cuarenta": {
-    title: "Proyecto Doce cuarenta",
-    category: "Solar Fotovoltaico",
-    location: "La Paz, BCS",
-    challenge: "Optimización energética para complejo comercial mediante la implementación de una planta solar fotovoltaica integrada.",
-    solution: "Instalación de paneles de alta eficiencia y sistema de monitoreo en tiempo real para control de demanda máxima.",
-    result: "Reducción significativa en la facturación eléctrica y estabilización del suministro.",
-    image: "https://images.unsplash.com/photo-1605276374104-162f1c4cb511?q=80&w=1200&auto=format&fit=crop",
+    title: "DoceCuarenta Centro",
+    category: "Solar Comercial",
+    location: "Centro, La Paz, BCS",
+    challenge: "Proveer una solución de energía limpia y eficiente para la icónica cafetería de especialidad DoceCuarenta, ubicada en el corazón histórico de La Paz. El reto principal fue integrar un sistema fotovoltaico capaz de soportar la alta demanda de equipos de tostado y climatización, sin comprometer la estética de este reconocido punto de encuentro turístico y local.",
+    solution: "Se diseñó e instaló una planta solar integrada con paneles de máxima eficiencia adaptados a la arquitectura del lugar. El sistema incluye tecnología de monitoreo en tiempo real (IoT) para gestionar de forma inteligente el consumo continuo del establecimiento en su horario extendido (7:00 AM - 10:00 PM).",
+    result: "Autonomía energética que garantiza la operación continua del recinto, logrando una reducción drástica en la facturación eléctrica comercial y reforzando el firme compromiso de DoceCuarenta con la sustentabilidad ambiental en Baja California Sur.",
+    image: "/proyectos/docecuarenta/portada.png",
+    imagePosition: "center 25%",
+    aboutCompany: {
+      title: "Acerca de DoceCuarenta",
+      logo: "/proyectos/docecuarenta/docelogo.jpg",
+      description: "DoceCuarenta es una icónica cafetería de especialidad en Baja California Sur. Ubicada a un par de cuadras del emblemático malecón de La Paz, es célebre por su meticuloso proceso de tostado, su panadería artesanal y su gran ambiente que atrae tanto a la comunidad local como a visitantes de todo el mundo. Este proyecto subraya su visión vanguardista de integrar la sustentabilidad directamente en sus operaciones diarias."
+    },
     details: [
-      { label: "Servicio", value: "Solar Industrial" },
-      { label: "Tecnología", value: "Monitoreo IOT" },
-      { label: "Estado", value: "Operativo" }
+      { label: "Giro", value: "Cafetería de Especialidad" },
+      { label: "Ubicación", value: "Zona Centro, La Paz" },
+      { label: "Tecnología", value: "Solar de Alta Eficiencia" }
     ],
     gallery: [
-      { src: "https://images.unsplash.com/photo-1605276374104-162f1c4cb511?q=80&w=1200&auto=format&fit=crop", alt: "Planta Solar Comercial" },
-      { src: "https://images.unsplash.com/photo-1559302995-f09fb9364969?q=80&w=800&auto=format&fit=crop", alt: "Monitoreo de Energía" },
-      { src: "https://images.unsplash.com/photo-1542336391-ae2936d8efe4?q=80&w=800&auto=format&fit=crop", alt: "Estructuras Elevadas" }
+      { src: "/proyectos/docecuarenta/DJI_0286.jpg", alt: "Vista aérea de instalación solar" },
+      { src: "/proyectos/docecuarenta/DJI_0287.jpg", alt: "Paneles solares instalados" },
+      { src: "/proyectos/docecuarenta/DJI_0289.jpg", alt: "Instalación de paneles" },
+      { src: "/proyectos/docecuarenta/DJI_0294.jpg", alt: "Planta Solar Comercial" },
+      { src: "/proyectos/docecuarenta/DJI_0295.jpg", alt: "Instalación Solar" },
+      { src: "/proyectos/docecuarenta/IMG_20260401_140535.jpg", alt: "Detalle de inversor y equipos" },
+      { src: "/proyectos/docecuarenta/IMG_20260401_140538.jpg", alt: "Canalización y conexiones eléctricas" }
     ]
   },
   "residencia-paraiso": {
@@ -130,11 +140,46 @@ export default function ProjectPage() {
             alt={project.title} 
             fill 
             className="object-cover" 
+            style={{ objectPosition: (project as any).imagePosition || 'center' }}
             priority 
           />
         </motion.div>
         <div className="absolute inset-0 bg-brand-darkest/10"></div>
       </section>
+
+      {/* Horizontal Gallery Section */}
+      <HorizontalGallery 
+        images={project.gallery}
+        title="Galería del Proyecto"
+        subtitle="Evidencia y Detalles"
+      />
+
+      {/* Optional About Company Section */}
+      {(project as any).aboutCompany && (
+        <section className="py-24 px-8 md:px-16 lg:px-24 xl:px-40 bg-gray-50 border-y border-gray-200">
+          <div className="max-w-[1920px] mx-auto flex flex-col items-center text-center">
+            <span className="text-brand-accent font-bold text-xs uppercase tracking-[0.3em] mb-8 block">Acerca de la empresa</span>
+            
+            {(project as any).aboutCompany.logo && (
+              <div className="relative w-48 h-24 mb-10 overflow-hidden mix-blend-multiply">
+                <Image 
+                  src={(project as any).aboutCompany.logo} 
+                  alt="Logo de la empresa"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            )}
+
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-brand-dark mb-8">
+              {(project as any).aboutCompany.title}
+            </h2>
+            <p className="text-lg md:text-xl font-medium text-brand-dark/70 leading-relaxed max-w-4xl mx-auto">
+              {(project as any).aboutCompany.description}
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Narrative Section - Redesigned to match reference */}
       <section className="py-32 px-8 md:px-16 lg:px-24 xl:px-40">
@@ -229,13 +274,6 @@ export default function ProjectPage() {
 
         </div>
       </section>
-
-      {/* Horizontal Gallery Section */}
-      <HorizontalGallery 
-        images={project.gallery}
-        title="Galería del Proyecto"
-        subtitle="Evidencia y Detalles"
-      />
 
       <Footer />
     </main>

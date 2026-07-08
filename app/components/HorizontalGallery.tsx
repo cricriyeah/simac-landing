@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Lightbox from "./Lightbox";
 
 export interface GalleryImage {
   src: string;
@@ -17,6 +18,7 @@ interface HorizontalGalleryProps {
 
 export function HorizontalGallery({ images, title, subtitle }: HorizontalGalleryProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -76,7 +78,8 @@ export function HorizontalGallery({ images, title, subtitle }: HorizontalGallery
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="snap-start flex-none w-[85vw] sm:w-[45vw] lg:w-[35vw] aspect-[4/3] relative bg-gray-50 overflow-hidden"
+            className="snap-start flex-none w-[85vw] sm:w-[45vw] lg:w-[35vw] aspect-[4/3] relative bg-gray-50 overflow-hidden cursor-pointer"
+            onClick={() => setSelectedImage(image)}
           >
             <Image
               src={image.src}
@@ -92,6 +95,13 @@ export function HorizontalGallery({ images, title, subtitle }: HorizontalGallery
         {/* Spacer at the end */}
         <div className="flex-none w-8 md:w-16 lg:w-24" />
       </div>
+
+      {/* Fullscreen Lightbox */}
+      <Lightbox 
+        src={selectedImage?.src || null} 
+        alt={selectedImage?.alt} 
+        onClose={() => setSelectedImage(null)} 
+      />
     </section>
   );
 }
